@@ -7,13 +7,15 @@ import LoginPage from '../screen/login';
 import Dashboard from '../screen/Dashboard';
 import Profile from '../screen/Profile';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function Route() {
   const auth = true;
   return (
     <Stack.Navigator
-      initialRouteName="Profile"
+      initialRouteName="BottomNav"
       screenOptions={{headerShown: false}}>
       {/* <Stack.Screen name="Splash" component={LoginPage} headerMode="screen" /> */}
       {/* <Stack.Screen name="Login" component={LoginPage} headerMode="screen" />
@@ -45,6 +47,7 @@ export function BottomNav() {
     <Tab.Navigator
       tabBarOptions={{
         showLabel: false,
+        tabBarActiveBackgroundColor: 'red',
         style: {
           position: 'absolute',
           marginHorizontal: 20,
@@ -56,6 +59,14 @@ export function BottomNav() {
         },
       }}
       screenOptions={({route}) => ({
+        tabBarStyle: {
+          // borderTopLeftRadius: 24,
+          // borderTopRightRadius: 24,
+          borderRadius: 24,
+          marginBottom: 12,
+          marginLeft: 18,
+          marginRight: 18,
+        },
         tabBarIcon: ({focused, size}) => {
           let iconName;
 

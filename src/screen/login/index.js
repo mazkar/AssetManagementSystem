@@ -4,10 +4,17 @@ import RootContainer from '../../component/RootContainer/index';
 import {useNavigation} from '@react-navigation/core';
 import ColorBgContainer from '../../component/ColorBgContainer';
 import {COLORS} from '../../assets/theme';
+import {Button, Menu, Divider, PaperProvider} from 'react-native-paper';
+import AppBar from '../../component/widget/AppBar';
 
 export default function LoginPage() {
   const navigation = useNavigation();
   const [refreshing, setRefreshing] = useState(false);
+  const [visible, setVisible] = React.useState(false);
+
+  const openMenu = () => setVisible(true);
+
+  const closeMenu = () => setVisible(false);
 
   const refreshScreen = React.useCallback(() => {
     setRefreshing(true);
@@ -17,7 +24,8 @@ export default function LoginPage() {
   }, []);
 
   return (
-    <ColorBgContainer>
+    <ColorBgContainer bgColor="white">
+      <AppBar />
       <RootContainer isTransparent>
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -29,7 +37,22 @@ export default function LoginPage() {
               tintColor={COLORS.PRIMARY_MEDIUM}
             />
           }>
-          <Text>Login Page</Text>
+          <View
+            style={{
+              paddingTop: 50,
+              flexDirection: 'row',
+              justifyContent: 'center',
+            }}>
+            <Menu
+              visible={visible}
+              onDismiss={closeMenu}
+              anchor={<Button onPress={openMenu}>Show menu</Button>}>
+              <Menu.Item onPress={() => {}} title="Item 1" />
+              <Menu.Item onPress={() => {}} title="Item 2" />
+              <Divider />
+              <Menu.Item onPress={() => {}} title="Item 3" />
+            </Menu>
+          </View>
         </ScrollView>
       </RootContainer>
     </ColorBgContainer>
