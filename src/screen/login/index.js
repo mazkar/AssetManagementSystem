@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
 import React, {useState} from 'react';
-
+import {HelperText, TextInput} from 'react-native-paper';
 import useNavigation from '@react-navigation/core';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -36,16 +36,13 @@ const LoginPage = ({navigation}) => {
   const [visible, setVisible] = React.useState(false);
   const [handlerChangeLanguage, setHandlerChangeLanguage] = useState(0);
   const [authLoading, setAuthLoading] = useState(false);
+  const [authFailed, setAuthFailed] = useState(false);
 
   // FORM
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [checked, setChecked] = React.useState(false);
   const [hidePassword, setHidePassword] = useState(true);
-
-  const openMenu = () => setVisible(true);
-
-  const closeMenu = () => setVisible(false);
 
   const refreshScreen = React.useCallback(() => {
     setRefreshing(true);
@@ -65,6 +62,7 @@ const LoginPage = ({navigation}) => {
       navigation.push('Main');
     } catch (error) {
       console.log(error);
+      setAuthFailed(true);
       // if (Password.length < 1 && username.length < 1) {
       //   setIsErrorUserName(true);
       //   setEmailHelperText('Username/Email Required');
@@ -185,9 +183,12 @@ const LoginPage = ({navigation}) => {
             }
             mode="outlined"
             value={username}
+            hasErrors={authFailed}
+            messageError="Wrong Username/Password"
             onChangeText={e => setUsername(e)}
             style={styles.inputUserName}
           />
+
           <Text>Password</Text>
           <TextInputPassword
             placeholder={
@@ -197,7 +198,9 @@ const LoginPage = ({navigation}) => {
             }
             mode="outlined"
             value={password}
+            hasErrors={authFailed}
             secureTextEntry={hidePassword}
+            messageError="Wrong Username/Password"
             icoPress={() => {
               setHidePassword(!hidePassword);
               return false;
@@ -344,7 +347,7 @@ const styles = StyleSheet.create({
   },
   gettingButton: {marginTop: 10},
 
-  inputUserName: {backgroundColor: COLORS.WHITE, marginBottom: 24},
+  inputUserName: {backgroundColor: COLORS.WHITE},
   inputUserPassword: {backgroundColor: COLORS.WHITE},
   rememberMe: {
     flexDirection: 'row',

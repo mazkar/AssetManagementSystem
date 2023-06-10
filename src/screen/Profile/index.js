@@ -9,7 +9,10 @@ export default function Profile({navigation}) {
 
   const handleLogut = () => {
     dispatch(resetReducer());
-    navigation.push('Login');
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'Login'}],
+    });
   };
 
   return (
