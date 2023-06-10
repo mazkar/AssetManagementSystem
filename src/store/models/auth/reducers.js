@@ -12,60 +12,16 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     // Sign in
-    case ActionType.AUTH_SIGN_IN:
-      return {...state, isLoading: true};
-    case ActionType.AUTH_SIGN_IN_SUCCESS:
+    case 'SET_TOKEN':
       return {
         ...state,
-        token: action.payload.access_token,
-        message: action.payload.message,
-        isLoading: false,
-        userData: action.payload.userData,
-        tokenExpired: action.payload.tokenExpired,
-      };
-    case ActionType.AUTH_SIGN_IN_FAILURE:
-      return {
-        ...state,
-        token: action.payload.access_token,
-        message: action.payload.message,
-        isLoading: false,
+        token: action.payload,
       };
 
-    // Refresh token
-    case ActionType.AUTH_REFRESH_TOKEN:
-      return {...state, isLoading: true};
-    case ActionType.AUTH_REFRESH_TOKEN_SUCCESS:
-      return {
-        ...state,
-        token: action.payload.token,
-        message: action.payload.message,
-        isLoading: false,
-        userData: action.payload.userData,
-        tokenExpired: action.payload.tokenExpired,
-      };
-    case ActionType.AUTH_REFRESH_TOKEN_FAILURE:
-      return {
-        ...state,
-        message: action.payload.message,
-        isLoading: false,
-      };
-
-    // Sign out
-    case ActionType.AUTH_SIGN_OUT:
-      return {...state, isLoading: true};
-    case ActionType.AUTH_SIGN_OUT_SUCCESS:
+    case 'RESET_REDUCER':
       return {
         ...initialState,
       };
-    case ActionType.AUTH_SIGN_OUT_FAILURE:
-      return {
-        ...state,
-        message: action.payload.message,
-        isLoading: false,
-      };
-
-    case 'resetReducer':
-      return {...initialState};
 
     default:
       return state;

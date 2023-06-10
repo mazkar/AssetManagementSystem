@@ -8,14 +8,22 @@ import Dashboard from '../screen/Dashboard';
 import Profile from '../screen/Profile';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function Route() {
-  const auth = true;
+  const token = useSelector(state => state.auth.token);
+  const initial = () => {
+    if (token == '') {
+      return 'Login';
+    } else if (token != '') {
+      return 'Main';
+    }
+  };
   return (
     <Stack.Navigator
-      initialRouteName="BottomNav"
+      initialRouteName={initial}
       screenOptions={{headerShown: false}}>
       {/* <Stack.Screen name="Splash" component={LoginPage} headerMode="screen" /> */}
       {/* <Stack.Screen name="Login" component={LoginPage} headerMode="screen" />
@@ -25,16 +33,16 @@ export default function Route() {
         headerMode="screen"
       /> */}
       <Stack.Screen
-        name="BottomNav"
+        name="Main"
         options={{headerShown: false}}
         component={BottomNav}
         // headerMode="screen"
       />
-      <Stack.Screen
-        name="Profile"
+      <Tab.Screen
+        name="Login"
+        component={LoginPage}
+        // options={{headerShown: false}}
         options={{headerShown: false}}
-        component={Profile}
-        // headerMode="screen"
       />
     </Stack.Navigator>
   );
@@ -108,15 +116,10 @@ export function BottomNav() {
         component={Dashboard}
         options={{headerShown: false}}
       />
-      <Tab.Screen
-        name="Login"
-        component={LoginPage}
-        // options={{headerShown: false}}
-        options={{headerShown: false}}
-      />
+
       <Tab.Screen
         name="Profile2"
-        component={LoginPage}
+        component={Profile}
         // options={{headerShown: false}}
         options={{headerShown: false}}
       />

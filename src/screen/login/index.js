@@ -9,27 +9,29 @@ import {
   Dimensions,
 } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
-import React, {useState, useCallback, useEffect} from 'react';
+import React, {useState} from 'react';
 
-import useNavigation from '@react-navigation/native';
+import useNavigation from '@react-navigation/core';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import {COLORS, FONTS} from '../../assets/theme';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import BgLogin from '../../assets/images/svg/bgLogin.svg';
-import VectLogin from '../../assets/images/svg/vectorLogin.svg';
 
 import constants from '../../assets/constants';
-import Logo from '../../assets/images/svg/appLogo.svg';
+import {URL} from '../../utils/apiURL';
 import {
   GeneralButton,
   GeneralTextInput,
   TextInputPassword,
   PopUpLoader,
 } from './../../component/index';
+import * as AuthService from '../../services/authServices';
+import {useDispatch} from 'react-redux';
+import {setToken} from '../../store/models/auth/actions';
 
-const LoginPage = () => {
-  // const navigation = useNavigation();
+const LoginPage = ({navigation}) => {
+  const dispatch = useDispatch();
+
   const [refreshing, setRefreshing] = useState(false);
   const [visible, setVisible] = React.useState(false);
   const [handlerChangeLanguage, setHandlerChangeLanguage] = useState(0);
@@ -54,11 +56,40 @@ const LoginPage = () => {
 
   // Hanlde Login
 
-  function doLoginUser() {
-    console.log('Login');
-
-    // check
-  }
+  const handleLogin = async () => {
+    try {
+      setAuthLoading(true);
+      const token = await AuthService.LoginAPI(username, password); //await AuthService.loginByAuth(email, password);
+      dispatch(setToken(token));
+      setAuthLoading(false);
+      navigation.push('Main');
+    } catch (error) {
+      console.log(error);
+      // if (Password.length < 1 && username.length < 1) {
+      //   setIsErrorUserName(true);
+      //   setEmailHelperText('Username/Email Required');
+      //   setIsErrorPassword(true);
+      //   setPassHelperText('Password Required');
+      // } else if (Password.length < 1) {
+      //   setIsErrorPassword(true);
+      //   setIsErrorUserName(false);
+      //   setPassHelperText('');
+      //   setPassHelperText('Password Required');
+      // } else if (username.length < 1) {
+      //   setIsErrorUserName(true);
+      //   setIsErrorPassword(false);
+      //   setEmailHelperText('Username/Email Required');
+      //   setPassHelperText('');
+      // } else {
+      //   console.log(error);
+      //   setIsErrorPassword(false);
+      //   setIsErrorUserName(false);
+      //   setEmailHelperText('');
+      //   setPassHelperText('');
+      // }
+      setAuthLoading(false);
+    }
+  };
 
   // IOS
   const headerFlexContainerIos = height => {
@@ -87,19 +118,14 @@ const LoginPage = () => {
   const footerFlexContainerIos = height => {
     console.log('INI HEIGHT', height);
     if (height >= 896) {
-      console.log('FOOTER 986');
       return 1.3;
     } else if (height < 926 && height >= 844) {
-      console.log('FOOTER 986 && 844');
       return 1.2;
     } else if (height < 844 && height >= 812) {
-      console.log('FOOTER 844 && 812');
       return 1.1;
     } else if (height < 812 && height >= 736) {
-      console.log('FOOTER 812 && 736');
       return 1;
     } else {
-      console.log('ELSE FOOTER');
       return 0.8;
     }
   };
@@ -107,20 +133,16 @@ const LoginPage = () => {
   // ANDROID
   const headerFlexContainerAndroid = height => {
     if (height <= 732) {
-      console.log('HEADER height <= 732');
       return 0.85;
     } else {
-      console.log('HEADER ELSE');
       return 0.9;
     }
   };
 
   const footerFlexContainerAndroid = height => {
     if (height <= 732) {
-      console.log('FOOTER height <= 732');
       return 0.725;
     } else {
-      console.log('FOOTER ELSE');
       return 1;
     }
   };
@@ -134,7 +156,7 @@ const LoginPage = () => {
   };
 
   return (
-    <View style={styles.container} edges={['left', 'right', 'top']}>
+    <SafeAreaView style={styles.container} edges={['left', 'right', 'top']}>
       <View
         style={{
           ...styles.headerContainer,
@@ -200,7 +222,7 @@ const LoginPage = () => {
             <TouchableOpacity
               onPress={() => {
                 // navigation.navigate('LupaPassword');
-                console.log('res');
+                handleLogin();
               }}>
               {handlerChangeLanguage === 0 ? (
                 <Text style={styles.lupaEP}>
@@ -226,7 +248,7 @@ const LoginPage = () => {
           <GeneralButton
             style={styles.gettingButton}
             mode="contained"
-            onPress={doLoginUser}>
+            onPress={() => handleLogin()}>
             Login
           </GeneralButton>
 
@@ -276,9 +298,6 @@ const LoginPage = () => {
             style={{position: 'absolute', bottom: 0}}
           />
           <VectLogin style={styles.vectLog} height={'70%'} /> */}
-          <Text style={styles.cpyrht}>
-            {constants.COPYRIGHT} | ATM Business Group
-          </Text>
         </View>
       </View>
 
@@ -289,7 +308,7 @@ const LoginPage = () => {
       )}
 
       <FlashMessage statusBarHeight={30} />
-    </View>
+    </SafeAreaView>
   );
 };
 
