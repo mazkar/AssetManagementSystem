@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, View, Platform, TouchableOpacity} from 'react-native';
-import {GeneralButton} from '../../../components';
+import {GeneralButton} from '../../../component/index';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {COLORS, FONTS, ICONS} from '../../../assets/theme';
 import TextError from '../TextError';
@@ -44,7 +44,7 @@ const DateTimePickers = ({
     }, 200);
   }, [numbersMode]);
 
-  const formatDate = (datePickers) => {
+  const formatDate = datePickers => {
     return `${datePickers.getDate()}/${
       datePickers.getMonth() + 1
     }/${datePickers.getFullYear()} ${datePickers.getHours()}:${datePickers.getMinutes()}`;

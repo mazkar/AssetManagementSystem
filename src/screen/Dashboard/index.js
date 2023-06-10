@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/core';
 import ColorBgContainer from '../../component/ColorBgContainer';
 import {COLORS, FONTS} from '../../assets/theme';
 import {Button, Menu, Divider, Avatar, Card} from 'react-native-paper';
-import ms from 'react-native-size-matters';
+import {ms} from 'react-native-size-matters';
 
 // iCONS
 import FaIcons from 'react-native-vector-icons/Ionicons';

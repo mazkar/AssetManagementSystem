@@ -45,20 +45,21 @@ export function BottomNav() {
 
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        showLabel: false,
-        tabBarActiveBackgroundColor: 'red',
-        style: {
-          position: 'absolute',
-          marginHorizontal: 20,
-          bottom: 21,
-          height: 60,
-          elevation: 0,
-          borderRadius: 40,
-          backgroundColor: '#000',
-        },
-      }}
+      // tabBarOptions={{
+
+      //   tabBarActiveBackgroundColor: 'red',
+      //   style: {
+      //     position: 'absolute',
+      //     marginHorizontal: 20,
+      //     bottom: 21,
+      //     height: 60,
+      //     elevation: 0,
+      //     borderRadius: 40,
+      //     backgroundColor: '#000',
+      //   },
+      // }}
       screenOptions={({route}) => ({
+        showLabel: false,
         tabBarStyle: {
           // borderTopLeftRadius: 24,
           // borderTopRightRadius: 24,

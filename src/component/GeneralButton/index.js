@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Button = props => {
+const Button = (props) => {
   const {children, isFitText, labelStyle, style} = props;
   return (
     <ButtonPaper

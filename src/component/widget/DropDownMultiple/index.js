@@ -18,7 +18,7 @@ const DropDownAccordionMultiple = ({
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState(itemsDropDown);
   const [handlerTypeAtmAround, sethandlerTypeAtmAround] = useState([]);
-  const itemsListDropDown = (numbers) => {
+  const itemsListDropDown = numbers => {
     if (numbers === 2) {
       return 80;
     } else if (numbers === 3) {
@@ -36,13 +36,13 @@ const DropDownAccordionMultiple = ({
     sethandlerTypeAtmAround(values);
   }, [sethandlerTypeAtmAround]);
 
-  const handleChanesValues = (item) => {
+  const handleChanesValues = item => {
     console.log('VALUE CHANGES VALUE', item);
     handleChangesValues(item, nameState);
     sethandlerTypeAtmAround(item);
   };
 
-  const handlerOnChanges = (item) => {
+  const handlerOnChanges = item => {
     console.log('VALUE CHANGES VALUE WKWKWKW', item);
   };
 
@@ -67,8 +67,8 @@ const DropDownAccordionMultiple = ({
           items={items}
           setOpen={setOpen}
           setValue={sethandlerTypeAtmAround}
-          onChangeValue={(value) => handleChanesValues(value)}
-          onSelectItem={(item) => handlerOnChanges(item)}
+          onChangeValue={value => handleChanesValues(value)}
+          onSelectItem={item => handlerOnChanges(item)}
           setItems={setItems}
           dropDownDirection="BOTTOM"
           placeholderStyle={styles.dropDownText}

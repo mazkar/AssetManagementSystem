@@ -83,7 +83,7 @@ export const theme = {
   roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#DC241F',
+    primary: '#eca61d',
     background: '#F4F7FB',
     surface: '#FFFFFF',
     accent: '#DC241F',
