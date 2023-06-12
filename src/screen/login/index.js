@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   Platform,
   Dimensions,
+  Image,
 } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
 import React, {useState} from 'react';
@@ -164,11 +165,11 @@ const LoginPage = ({navigation}) => {
               : headerFlexContainerAndroid(Dimensions.get('screen').height),
         }}>
         <View style={styles.logoWrapper}>
-          <Text
+          <Image
+            source={require('../../assets/images/logoFis.png')}
             width={constants.SCREEN_WIDTH * (1 / 3)}
             height={constants.SCREEN_WIDTH * (1 / 3)}
           />
-          <Text>LOGO</Text>
         </View>
       </View>
 

@@ -81,7 +81,7 @@ export default function Dashboard() {
 
             <View style={styles.helloContainer}>
               <View>
-                <Text style={styles.profileName}>Hello Azka</Text>
+                <Text style={styles.profileName}>Hello Admin</Text>
               </View>
             </View>
 
