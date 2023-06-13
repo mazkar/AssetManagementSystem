@@ -223,11 +223,7 @@ const LoginPage = ({navigation}) => {
               )}
             </View> */}
 
-            <TouchableOpacity
-              onPress={() => {
-                // navigation.navigate('LupaPassword');
-                handleLogin();
-              }}>
+            <TouchableOpacity onPress={handleLogin}>
               {handlerChangeLanguage === 0 ? (
                 <Text style={styles.lupaEP}>
                   Lupa Password{' '}

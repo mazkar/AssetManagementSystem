@@ -22,6 +22,10 @@ import PopUpLoader from './widget/PopUp/PopUpLoader';
 // MODAL SUCCESS
 import ModalSucces from './widget/Modal';
 
+//section
+
+import OverviewProgres from './section/OverviewProgres';
+
 // DropDown
 import DropDown from './widget/DropDown';
 import DropDown2 from './widget/DropDown/DropDown2';
@@ -66,6 +70,7 @@ export {
   PopUpCreateSurvey,
   PopUpLoader,
   DropDown,
+  OverviewProgres,
   DropDown2,
   ProgressBars,
   ModalSucces,

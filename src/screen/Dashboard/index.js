@@ -6,7 +6,8 @@ import ColorBgContainer from '../../component/ColorBgContainer';
 import {COLORS, FONTS} from '../../assets/theme';
 import {Button, Menu, Divider, Avatar, Card} from 'react-native-paper';
 import {ms} from 'react-native-size-matters';
-
+import {OverviewProgres} from '../../component/index';
+import {VictoryPie} from 'victory-native';
 // iCONS
 import FaIcons from 'react-native-vector-icons/Ionicons';
 
@@ -14,6 +15,13 @@ export default function Dashboard() {
   const navigation = useNavigation();
   const [refreshing, setRefreshing] = useState(false);
   const [notifVisible, setNotifVisible] = useState(false);
+  const surveyChart = [];
+
+  const data = [
+    {x: 'Cats', y: 35},
+    {x: 'Dogs', y: 40},
+    {x: 'Birds', y: 55},
+  ];
 
   // Notification
 
@@ -89,14 +97,13 @@ export default function Dashboard() {
               <View>
                 <Text style={styles.overviewText}>Overview</Text>
               </View>
-              <View>
-                <Card>
-                  <Card.Content>
-                    <Text variant="titleLarge">Card title</Text>
-                    <Text variant="bodyMedium">Card content</Text>
-                  </Card.Content>
-                </Card>
-              </View>
+
+              <OverviewProgres
+                surveyChart={[]}
+                valueOpen={1}
+                valueDone={2}
+                valueTotal={3}
+              />
               {/* <View>
                 <Text style={styles.profileName}>Overview</Text>
               </View> */}

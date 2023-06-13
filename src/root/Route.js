@@ -13,17 +13,11 @@ import {useSelector} from 'react-redux';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function Route() {
-  const token = useSelector(state => state.auth.token);
-  const initial = () => {
-    if (token == '') {
-      return 'Login';
-    } else if (token != '') {
-      return 'Main';
-    }
-  };
+  const token = useSelector(state => state?.auth?.token);
+
   return (
     <Stack.Navigator
-      initialRouteName={initial}
+      initialRouteName={token == null ? 'Login' : 'Main'}
       screenOptions={{headerShown: false}}>
       {/* <Stack.Screen name="Splash" component={LoginPage} headerMode="screen" /> */}
       {/* <Stack.Screen name="Login" component={LoginPage} headerMode="screen" />
