@@ -10,9 +10,9 @@ import {OverviewProgres} from '../../component/index';
 import {VictoryPie} from 'victory-native';
 // iCONS
 import FaIcons from 'react-native-vector-icons/Ionicons';
+import TaskPending from '../../component/section/TaskPending';
 
-export default function Dashboard() {
-  const navigation = useNavigation();
+export default function Dashboard({navigation}) {
   const [refreshing, setRefreshing] = useState(false);
   const [notifVisible, setNotifVisible] = useState(false);
   const surveyChart = [];
@@ -100,6 +100,7 @@ export default function Dashboard() {
                 valueDone={2}
                 valueTotal={3}
               />
+              <TaskPending navigation={navigation} />
               {/* <View>
                 <Text style={styles.profileName}>Overview</Text>
               </View> */}

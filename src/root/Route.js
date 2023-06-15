@@ -9,6 +9,7 @@ import Profile from '../screen/Profile';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useSelector} from 'react-redux';
+import MapTracker from '../component/widget/MapTracker';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -37,6 +38,12 @@ export default function Route() {
         component={LoginPage}
         // options={{headerShown: false}}
         options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Tracker"
+        component={MapTracker}
+        // options={{headerShown: false}}
+        // options={{headerShown: false}}
       />
     </Stack.Navigator>
   );

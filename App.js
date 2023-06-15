@@ -7,6 +7,9 @@ import {theme} from './src/assets/theme';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import store, {persistor} from './src/store/index';
+import {enableLatestRenderer} from 'react-native-maps';
+
+enableLatestRenderer();
 
 export default function App() {
   return (
