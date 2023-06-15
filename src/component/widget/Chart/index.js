@@ -6,7 +6,7 @@ import {COLORS} from '../../../assets/theme';
 
 const VictoryChart = props => {
   const {data, colorbar, surveyOpen, surveyDone, totalSurvey} = props;
-  const colorPie = [COLORS.PRIMARY_MEDIUM, COLORS.PRIMARY_DARK];
+  const colorPie = [COLORS.SUCCESS, COLORS.PRIMARY_MEDIUM];
 
   const positionTextChartIos = width => {
     console.log('width Phone =>', width);
@@ -77,7 +77,7 @@ const VictoryChart = props => {
           <Text style={styles.txt2}>/{totalSurvey}</Text>
         </View>
 
-        <Text style={styles.txt1}>SDR</Text>
+        <Text style={styles.txt3}>SDR</Text>
       </View>
     </View>
   );
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 75,
     // left: Platform.OS === 'ios' ? '21.5%' : '22.5%',
-    left: Platform.OS === 'ios' ? '21.5%' : '22.5%',
+    left: Platform.OS === 'ios' ? '21.5%' : '21.5%',
   },
   txt1: {
     fontSize: 13,
@@ -129,5 +129,6 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '600',
     color: COLORS.DARK,
+    marginLeft: 8,
   },
 });

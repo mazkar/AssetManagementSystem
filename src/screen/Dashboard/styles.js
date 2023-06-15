@@ -67,8 +67,9 @@ const styles = StyleSheet.create({
   card: {
     paddingHorizontal: 8,
     paddingVertical: 20,
-    marginHorizontal: 20,
+    marginHorizontal: 12,
     borderRadius: 8,
+    height: 226,
     backgroundColor: COLORS.WHITE,
   },
   cardHeader: {
@@ -96,7 +97,12 @@ const styles = StyleSheet.create({
   },
 
   //
-  surveyProgres: {marginTop: 16, marginBottom: 20},
+  surveyProgres: {
+    marginTop: 16,
+    marginBottom: 20,
+    flex: 1,
+    flexDirection: 'row',
+  },
 
   //survey
   survey: {marginBottom: 20},

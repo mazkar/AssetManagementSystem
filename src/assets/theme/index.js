@@ -97,7 +97,7 @@ export const theme = {
 };
 
 export const COLORS = {
-  PRIMARY_DARK: '#780000',
+  PRIMARY_DARK: '#FFE9E9',
   PRIMARY_MEDIUM: '#eca61d',
   PRIMARY_ULTRASOFT: '#FFE9E9',
 

@@ -94,10 +94,6 @@ export default function Dashboard() {
             </View>
 
             <View style={styles.overviewContainer}>
-              <View>
-                <Text style={styles.overviewText}>Overview</Text>
-              </View>
-
               <OverviewProgres
                 surveyChart={[]}
                 valueOpen={1}
