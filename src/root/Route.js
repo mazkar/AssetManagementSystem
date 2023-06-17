@@ -43,7 +43,7 @@ export default function Route() {
         name="Tracker"
         component={MapTracker}
         // options={{headerShown: false}}
-        // options={{headerShown: false}}
+        options={{headerShown: true}}
       />
     </Stack.Navigator>
   );
@@ -84,7 +84,7 @@ export function BottomNav() {
             iconName = focused
               ? require('../assets/images/homeActive.png')
               : require('../assets/images/home.png');
-          } else if (route.name === 'Login') {
+          } else if (route.name === 'Task') {
             iconName = focused
               ? require('../assets/images/userActive.png')
               : require('../assets/images/user.png');
@@ -114,6 +114,11 @@ export function BottomNav() {
       })}>
       <Tab.Screen
         name="Dashboard"
+        component={Dashboard}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Task"
         component={Dashboard}
         options={{headerShown: false}}
       />

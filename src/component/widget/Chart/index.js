@@ -46,14 +46,14 @@ const VictoryChart = props => {
           <View style={styles.rowKet}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <View style={styles.boxDone} />
-              <Text style={styles.txt1}>SDRDone</Text>
+              <Text style={styles.txt1}>Done</Text>
             </View>
             <Text style={styles.txt2}>{surveyDone}</Text>
           </View>
           <View style={styles.rowKet}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <View style={styles.boxOpen} />
-              <Text style={styles.txt1}>SDR Pending</Text>
+              <Text style={styles.txt1}>Pending</Text>
             </View>
             <Text style={styles.txt2}>{surveyOpen}</Text>
           </View>
@@ -77,7 +77,7 @@ const VictoryChart = props => {
           <Text style={styles.txt2}>/{totalSurvey}</Text>
         </View>
 
-        <Text style={styles.txt3}>SDR</Text>
+        <Text style={styles.txt3}></Text>
       </View>
     </View>
   );

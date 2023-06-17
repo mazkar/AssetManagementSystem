@@ -38,6 +38,18 @@ const TaskPending = props => {
         {/* victory chart */}
         <MapTracker />
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigateToTracking()}>
+        <View style={styles.cardHeader}>
+          <View style={styles.titleContiner}>
+            <Text style={styles.txtTitle}>Delivery Tracking PO-100</Text>
+          </View>
+        </View>
+
+        {/* victory chart */}
+        <MapTracker />
+      </TouchableOpacity>
     </ScrollView>
   );
 };
