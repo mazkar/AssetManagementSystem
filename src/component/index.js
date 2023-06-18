@@ -52,10 +52,12 @@ import AutoTextCompleteInput2 from './widget/AutoCompleteTextInput/AutoCompleteT
 // Survey Done Empty
 import SurveyEmpty from './widget/SurveyEmpty';
 import SurveyEmpty2 from './widget/SurveyEmpty/SurveyEmpty2';
+import ItemSurveyOpen from './Data/ItemSurveyOpen';
 
 export {
   RootContainer,
   ColorBgContainer,
+  ItemSurveyOpen,
   SurveyEmpty,
   SurveyEmpty2,
   GeneralButton,

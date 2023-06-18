@@ -10,6 +10,7 @@ import Profile from '../screen/Profile';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useSelector} from 'react-redux';
 import MapTracker from '../component/widget/MapTracker';
+import TaskManagement from '../screen/TaskManagement';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -119,7 +120,7 @@ export function BottomNav() {
       />
       <Tab.Screen
         name="Task"
-        component={Dashboard}
+        component={TaskManagement}
         options={{headerShown: false}}
       />
 

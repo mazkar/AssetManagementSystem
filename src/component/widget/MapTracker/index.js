@@ -64,7 +64,7 @@ export default function MapTracker() {
         },
       };
 
-      // Create a GeoJSON collection with the route feature
+      // Create a GeoJSON collection with the route featureASKzs
       const routeCollection = {
         type: 'FeatureCollection',
         features: [routeFeature],
