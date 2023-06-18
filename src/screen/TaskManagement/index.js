@@ -39,6 +39,18 @@ export default function TaskManagement({navigation}) {
           </GeneralButton>
           <GeneralButton
             style={{
+              ...styles.openButton,
+              backgroundColor: changeTab ? COLORS.WHITE : COLORS.PRIMARY_MEDIUM,
+            }}
+            labelStyle={{
+              color: changeTab ? COLORS.PRIMARY_MEDIUM : COLORS.WHITE,
+            }}
+            mode="contained"
+            onPress={handlerOpenTab}>
+            Progres
+          </GeneralButton>
+          <GeneralButton
+            style={{
               ...styles.doneButtonStyle,
               backgroundColor: changeTab ? COLORS.PRIMARY_MEDIUM : COLORS.WHITE,
             }}
@@ -66,13 +78,13 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   openButton: {
-    width: '45%',
+    width: '30%',
     borderWidth: 1,
     color: COLORS.PRIMARY_MEDIUM,
     borderColor: COLORS.PRIMARY_MEDIUM,
   },
   doneButtonStyle: {
-    width: '45%',
+    width: '30%',
     borderWidth: 1,
     color: COLORS.PRIMARY_MEDIUM,
     borderColor: COLORS.PRIMARY_MEDIUM,
